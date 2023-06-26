@@ -12,14 +12,14 @@ This is a command-line application that allows users to take multiple-choice tes
 
 ## Requirements
 
-- Python 3.11 or above
+- Python 3.6 or above
 
 ## Usage
 
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/TeomanEgeSelcuk/FASTAPI-Quiz.git
 cd <repository-directory>
 ```
 

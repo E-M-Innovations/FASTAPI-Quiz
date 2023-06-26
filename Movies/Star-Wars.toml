@@ -1,0 +1,102 @@
+[[questions]]
+question = "Who is the main protagonist in the original Star Wars trilogy?"
+choices = [
+  "Luke Skywalker",
+  "Han Solo",
+  "Darth Vader",
+  "Princess Leia"
+]
+# Answer: Choice 1 (Luke Skywalker)
+
+[[questions]]
+question = "What is the name of Han Solo's ship?"
+choices = [
+  "Millennium Falcon",
+  "Star Destroyer",
+  "Death Star",
+  "TIE Fighter"
+]
+# Answer: Choice 1 (Millennium Falcon)
+
+[[questions]]
+question = "Who is Luke Skywalker's sister?"
+choices = [
+  "Leia Organa",
+  "Padme Amidala",
+  "Rey",
+  "Jyn Erso"
+]
+# Answer: Choice 1 (Leia Organa)
+
+[[questions]]
+question = "What is the mystical energy field that Jedi and Sith use called?"
+choices = [
+  "The Force",
+  "The Dark Side",
+  "The Empire",
+  "The Rebellion"
+]
+# Answer: Choice 1 (The Force)
+
+[[questions]]
+question = "Who is the main antagonist in the original Star Wars trilogy?"
+choices = [
+  "Emperor Palpatine",
+  "Darth Vader",
+  "Count Dooku",
+  "Kylo Ren"
+]
+# Answer: Choice 2 (Darth Vader)
+
+[[questions]]
+question = "What is the weapon used by Jedi and Sith called?"
+choices = [
+  "Lightsaber",
+  "Blaster",
+  "Bowcaster",
+  "DL-44 Heavy Blaster Pistol"
+]
+# Answer: Choice 1 (Lightsaber)
+
+[[questions]]
+question = "Who is the mentor of Luke Skywalker?"
+choices = [
+  "Obi-Wan Kenobi",
+  "Yoda",
+  "Qui-Gon Jinn",
+  "Mace Windu"
+]
+# Answer: Choice 2 (Yoda)
+
+[[questions]]
+question = "What planet is the home of Chewbacca?"
+choices = [
+  "Kashyyyk",
+  "Tatooine",
+  "Hoth",
+  "Endor"
+]
+# Answer: Choice 1 (Kashyyyk)
+
+[[questions]]
+question = "Who is the captain of the Millennium Falcon?"
+choices = [
+  "Han Solo",
+  "Chewbacca",
+  "Lando Calrissian",
+  "Boba Fett"
+]
+# Answer: Choice 3 (Lando Calrissian)
+
+[[questions]]
+question = "What is the name of the organization that opposes the Galactic Empire?"
+choices = [
+  "Rebel Alliance",
+  "First Order",
+  "Separatist Alliance",
+  "Resistance"
+]
+# Answer: Choice 4 (Resistance)
+
+[correct_answers]
+correct_answers = [1, 1, 1, 1, 2, 1, 2, 1, 3, 4]

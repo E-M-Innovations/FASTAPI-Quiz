@@ -1,0 +1,14 @@
+[[questions]]
+question = "What is the chemical symbol for gold?"
+choices = ["Cu", "Ag", "Fe", "Au"]
+
+[[questions]]
+question = "Who wrote the novel 'Pride and Prejudice'?"
+choices = ["Emily Bronte", "Charles Dickens", "Jane Austen", "F. Scott Fitzgerald"]
+
+[[questions]]
+question = "What is the capital city of France?"
+choices = ["Paris", "Rome", "Berlin", "London"]
+
+[correct_answers]
+correct_answers = [4, 3, 1]  # Answers: Au (4), Jane Austen (3), Paris (1), Jupiter (1), Leonardo da Vinci (4), Ag(2)

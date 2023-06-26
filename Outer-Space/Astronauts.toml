@@ -1,0 +1,102 @@
+[[questions]]
+question = "Who was the first person to walk on the moon?"
+choices = [
+  "Buzz Aldrin",
+  "Neil Armstrong",
+  "Yuri Gagarin",
+  "Alan Shepard"
+]
+# Answer: Choice 2 (Neil Armstrong)
+
+[[questions]]
+question = "Which astronaut holds the record for the longest cumulative time in space?"
+choices = [
+  "Scott Kelly",
+  "Yuri Gagarin",
+  "Valentina Tereshkova",
+  "Peggy Whitson"
+]
+# Answer: Choice 1 (Scott Kelly)
+
+[[questions]]
+question = "Who was the first American woman to go into space?"
+choices = [
+  "Valentina Tereshkova",
+  "Mae Jemison",
+  "Sally Ride",
+  "Christa McAuliffe"
+]
+# Answer: Choice 3 (Sally Ride)
+
+[[questions]]
+question = "Which astronaut is known for playing the guitar on the International Space Station?"
+choices = [
+  "Chris Hadfield",
+  "Tim Peake",
+  "Scott Kelly",
+  "Peggy Whitson"
+]
+# Answer: Choice 1 (Chris Hadfield)
+
+[[questions]]
+question = "Who was the first person to orbit the Earth?"
+choices = [
+  "Buzz Aldrin",
+  "Neil Armstrong",
+  "Yuri Gagarin",
+  "Alan Shepard"
+]
+# Answer: Choice 3 (Yuri Gagarin)
+
+[[questions]]
+question = "Which astronaut became the oldest person to go into space?"
+choices = [
+  "John Glenn",
+  "Alan Shepard",
+  "Buzz Aldrin",
+  "Scott Kelly"
+]
+# Answer: Choice 1 (John Glenn)
+
+[[questions]]
+question = "Who was the first Canadian astronaut to go into space?"
+choices = [
+  "Chris Hadfield",
+  "Marc Garneau",
+  "Julie Payette",
+  "Robert Thirsk"
+]
+# Answer: Choice 2 (Marc Garneau)
+
+[[questions]]
+question = "Which astronaut set the record for the most spacewalks?"
+choices = [
+  "Buzz Aldrin",
+  "Neil Armstrong",
+  "Yuri Gagarin",
+  "Peggy Whitson"
+]
+# Answer: Choice 4 (Peggy Whitson)
+
+[[questions]]
+question = "Who was the first woman to walk in space?"
+choices = [
+  "Valentina Tereshkova",
+  "Mae Jemison",
+  "Sally Ride",
+  "Kathryn Sullivan"
+]
+# Answer: Choice 4 (Kathryn Sullivan)
+
+[[questions]]
+question = "Which astronaut became the first to tweet from space?"
+choices = [
+  "Chris Hadfield",
+  "Tim Peake",
+  "Scott Kelly",
+  "Peggy Whitson"
+]
+# Answer: Choice 1 (Chris Hadfield)
+
+[correct_answers]
+correct_answers = [2, 1, 3, 1, 3, 1, 2, 4, 4, 1]
