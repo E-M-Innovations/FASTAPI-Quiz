@@ -1,5 +1,3 @@
-# FASTAPI Quiz
-
 This documentation page outlines a project designed to streamline the administration of multiple-choice assessments using TOML-formatted test files. The project includes a main script, utility modules, and test folders containing the test files. Its objective is to simplify the process of designing, organizing, and executing tests by leveraging TOML files. The project offers flexibility in customizing tests, organization of tests into folders, randomization of questions, interactivity for user engagement, and automated evaluation of answers. For more information about the CLI quiz project click: 
 
 [Quiz CLI Documentation ](./Quiz-CLI.md)
