@@ -8,7 +8,7 @@ The chief objective of this project is to establish a structure and instrument f
 
 1. **`test_folder_utils.py`**: This module provides utility functions for working with test folders. It includes functions for retrieving test folders in the current directory, retrieving test files within a specific test folder, and prompting the user to select a test folder.
     
-    ```mermaid
+```mermaid
     graph TB
     
         style A fill:lightpink, stroke:#333, stroke-width:2px
@@ -34,7 +34,7 @@ The chief objective of this project is to establish a structure and instrument f
     
 2. **`text_executor.py`**: This module contains additional core functionality for conducting multiple-choice tests. It includes functions for clearing the screen, getting user choices for tests and test folders, conducting tests, and displaying test results.
     
-    ```mermaid
+```mermaid
     graph TB
         style A fill:lightpink, stroke:#333, stroke-width:2px
         style C fill:lightblue, stroke:#333, stroke-width:2px
@@ -66,7 +66,7 @@ The chief objective of this project is to establish a structure and instrument f
     
 3. The **`main.py`** script utilizes the functions from **`test_utils.py`**, **`test_folder_utils.py`**, and **`text_executor.py`** to facilitate the selection and execution of multiple-choice tests. It interacts with the user, presents questions, collects answers, evaluates them, and displays the test results.
     
-    ```mermaid
+```mermaid
     flowchart TB
         A[Start] --> B(Load Test Data)
         B --> C{Test Data Loaded?}
@@ -117,7 +117,7 @@ project/
 The **`*.toml`** files represent individual tests in TOML (Tom's Obvious, Minimal Language) format. Each test file contains a set of multiple-choice questions along with their choices and correct answers. The **`main.py`** script loads these test files, selects questions randomly, presents them to the user, collects their answers, and evaluates them against the correct answers.
 
 TOML file format:
-```
+```toml
 [[questions]]
 question = "<Question 1>"
 choices = [
