@@ -94,10 +94,53 @@ The chief objective of this project is to establish a structure and instrument f
     
 
 Here is the directory structure for the project:
+```
+project/
+├── main.py
+├── test_utils.py
+├── test_folder_utils.py
+├── <test-theme-1>/
+│   ├── test-1.toml
+│   ├── test-2.toml
+│   └── ...
+├── <test-theme-2>/
+│   ├── test-1.toml
+│   ├── test-2.toml
+│   └── ...
+├── <test-theme-3>/
+│   ├── test-1.toml
+│   ├── test-2.toml
+│   └── ...
+└── ...
+```
 
 The **`*.toml`** files represent individual tests in TOML (Tom's Obvious, Minimal Language) format. Each test file contains a set of multiple-choice questions along with their choices and correct answers. The **`main.py`** script loads these test files, selects questions randomly, presents them to the user, collects their answers, and evaluates them against the correct answers.
 
 TOML file format:
+```
+[[questions]]
+question = "<Question 1>"
+choices = [
+  "Choice 1",
+  "Choice 2",
+  "Choice 3",
+  "Choice 4"
+]
+# Answer: Choice X (X)
+[[questions]]
+question =  "<Question 2>"
+choices = [
+  "Choice 1",
+  "Choice 2",
+  "Choice 3",
+  "Choice 4",
+  "Choice 5"
+]
+# Answer: Choice X (X)
+...
+[correct_answers]
+correct_answers = [X1, X2, ...]
+```
 
 ## **Benefits and Features**
 
