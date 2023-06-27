@@ -30,8 +30,9 @@ The chief objective of this project is to establish a structure and instrument f
         E -- No --> I
         F --> G[Retrieve Test Files]
         G --> H[Process Test Files]
-    ```
-    
+```
+  
+
 2. **`text_executor.py`**: This module contains additional core functionality for conducting multiple-choice tests. It includes functions for clearing the screen, getting user choices for tests and test folders, conducting tests, and displaying test results.
     
 ```mermaid
@@ -62,7 +63,7 @@ The chief objective of this project is to establish a structure and instrument f
         L -- No --> M[Evaluate Answers]
         M --> N[Show Test Results]
         N --> O[End]
-    ```
+```
     
 3. The **`main.py`** script utilizes the functions from **`test_utils.py`**, **`test_folder_utils.py`**, and **`text_executor.py`** to facilitate the selection and execution of multiple-choice tests. It interacts with the user, presents questions, collects answers, evaluates them, and displays the test results.
     
@@ -90,7 +91,7 @@ The chief objective of this project is to establish a structure and instrument f
         style H fill:lightblue, stroke:#333, stroke-width:2px
         style I fill:lightpink, stroke:#333, stroke-width:2px
         style J fill:lightpink, stroke:#333, stroke-width:2px
-    ```
+```
     
 
 Here is the directory structure for the project:
