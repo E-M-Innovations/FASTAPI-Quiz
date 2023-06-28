@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>FastApi Quiz</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html">FastApi Quiz Docs</a></li><li class="chapter-item expanded "><a href="Quiz-CLI.html">Quiz CLI</a></li><li class="chapter-item expanded "><a href="FASTAPI-Website-Design.html">Website Design</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">FastApi Quiz</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/E-M-Innovations/FASTAPI-Quiz" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>This documentation page outlines a project designed to streamline the administration of multiple-choice assessments using TOML-formatted test files. The project includes a main script, utility modules, and test folders containing the test files. Its objective is to simplify the process of designing, organizing, and executing tests by leveraging TOML files. The project offers flexibility in customizing tests, organization of tests into folders, randomization of questions, interactivity for user engagement, and automated evaluation of answers. For more information about the CLI quiz project click: </p>
+<p><a href="./Quiz-CLI.html">Quiz CLI Documentation </a></p>
+<p>The plan involves using the existing CLI project as a foundation and building a web interface using the FASTAPI framework. The web interface will allow users to take tests and view their results in real-time. The ultimate goal is to provide a seamless and intuitive experience for users while maintaining the flexibility and customization options of the original CLI project. </p>
+<p><a href="./FASTAPI-Website-Design.html">FASTAPI Website Design </a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="quiz-cli-documentation"><a class="header" href="#quiz-cli-documentation">Quiz CLI Documentation</a></h1>
+<h2 id="objective"><a class="header" href="#objective">Objective</a></h2>
+<p>The chief objective of this project is to establish a structure and instrument for administering multiple-choice assessments. The project strives to simplify the procedure involved in designing, arranging, and implementing tests by utilizing TOML-formatted test documents.</p>
+<h3 id="components"><a class="header" href="#components">Components</a></h3>
+<ol>
+<li><strong><code>test_folder_utils.py</code></strong>: This module provides utility functions for working with test folders. It includes functions for retrieving test folders in the current directory, retrieving test files within a specific test folder, and prompting the user to select a test folder.</li>
+</ol>
+<pre class="mermaid">    graph TB
+    
+        style A fill:lightpink, stroke:#333, stroke-width:2px
+        style B fill:lightpurple, stroke:#333, stroke-width:2px
+        style C fill:lightblue, stroke:#333, stroke-width:2px
+        style D fill:lightgreen, stroke:#333, stroke-width:2px
+        style E fill:lightblue, stroke:#333, stroke-width:2px
+        style F fill:lightgreen, stroke:#333, stroke-width:2px
+        style G fill:lightgreen, stroke:#333, stroke-width:2px
+        style H fill:lightpurple, stroke:#333, stroke-width:2px
+        style I fill:lightpink, stroke:#333, stroke-width:2px
+    
+        A(Start) --&gt; B[Get Test Folders]
+        B --&gt; C{Any Test Folders?}
+        C -- Yes --&gt; D[Retrieve Test Folders]
+        C -- No --&gt; I[Display Error and Exit]
+        D --&gt; E{Any Test Files?}
+        E -- Yes --&gt; F[Select Test Folder]
+        E -- No --&gt; I
+        F --&gt; G[Retrieve Test Files]
+        G --&gt; H[Process Test Files]
+</pre>
+<ol start="2">
+<li><strong><code>text_executor.py</code></strong>: This module contains additional core functionality for conducting multiple-choice tests. It includes functions for clearing the screen, getting user choices for tests and test folders, conducting tests, and displaying test results.</li>
+</ol>
+<pre class="mermaid">    graph TB
+        style A fill:lightpink, stroke:#333, stroke-width:2px
+        style C fill:lightblue, stroke:#333, stroke-width:2px
+        style D fill:lightblue, stroke:#333, stroke-width:2px
+        style E fill:lightyellow, stroke:#333, stroke-width:2px
+        style F fill:lightyellow, stroke:#333, stroke-width:2px
+        style G fill:lightgreen, stroke:#333, stroke-width:2px
+        style H fill:lightgreen, stroke:#333, stroke-width:2px
+        style K fill:lightcyan, stroke:#333, stroke-width:2px
+        style L fill:lightblue, stroke:#333, stroke-width:2px
+        style M fill:lightgreen, stroke:#333, stroke-width:2px
+        style N fill:lightgreen, stroke:#333, stroke-width:2px
+        style O fill:lightpink, stroke:#333, stroke-width:2px
+    
+        A(Start) --&gt; C{Get User Choice}
+        C -- Test Selection --&gt; D{All Tests?}
+        D -- No --&gt; E[Select Test Files]
+        D -- Yes --&gt; F[All Test Files]
+        E --&gt; G(Process Questions)
+        F --&gt; G
+        G --&gt; H[Randomize Questions &amp; Present Question]
+        H -- Answered Correctly? --&gt; K[Increment Correct Count]
+        K --&gt; L{More Questions?}
+        L -- Yes --&gt; G
+        L -- No --&gt; M[Evaluate Answers]
+        M --&gt; N[Show Test Results]
+        N --&gt; O[End]
+</pre>
+<ol start="3">
+<li>The <strong><code>main.py</code></strong> script utilizes the functions from <strong><code>test_utils.py</code></strong>, <strong><code>test_folder_utils.py</code></strong>, and <strong><code>text_executor.py</code></strong> to facilitate the selection and execution of multiple-choice tests. It interacts with the user, presents questions, collects answers, evaluates them, and displays the test results.</li>
+</ol>
+<pre class="mermaid">    flowchart TB
+        A[Start] --&gt; B(Load Test Data)
+        B --&gt; C{Test Data Loaded?}
+        C -- Yes --&gt; D(Present Question)
+        D --&gt; E{User's Answer}
+        E -- Valid --&gt; F(Evaluate Answers)
+        F --&gt; G{More Questions?}
+        G --&gt; H[Display Results]
+        H --&gt; I[End]
+        E -- Invalid --&gt; J[Invalid Answer]
+        J --&gt; D
+        C -- No --&gt; I
+    
+        style A fill:lightpink, stroke:#333, stroke-width:2px
+        style B fill:lightyellow, stroke:#333, stroke-width:2px
+        style C fill:lightblue, stroke:#333, stroke-width:2px
+        style D fill:lightgreen, stroke:#333, stroke-width:2px
+        style E fill:lightblue, stroke:#333, stroke-width:2px
+        style F fill:lightgreen, stroke:#333, stroke-width:2px
+        style G fill:lightgreen, stroke:#333, stroke-width:2px
+        style H fill:lightblue, stroke:#333, stroke-width:2px
+        style I fill:lightpink, stroke:#333, stroke-width:2px
+        style J fill:lightpink, stroke:#333, stroke-width:2px
+</pre>
+<p>Here is the directory structure for the project:</p>
+<pre><code>project/
+├── main.py
+├── test_utils.py
+├── test_folder_utils.py
+├── &lt;test-theme-1&gt;/
+│   ├── test-1.toml
+│   ├── test-2.toml
+│   └── ...
+├── &lt;test-theme-2&gt;/
+│   ├── test-1.toml
+│   ├── test-2.toml
+│   └── ...
+├── &lt;test-theme-3&gt;/
+│   ├── test-1.toml
+│   ├── test-2.toml
+│   └── ...
+└── ...
+</code></pre>
+<p>The <strong><code>*.toml</code></strong> files represent individual tests in TOML (Tom’s Obvious, Minimal Language) format. Each test file contains a set of multiple-choice questions along with their choices and correct answers. The <strong><code>main.py</code></strong> script loads these test files, selects questions randomly, presents them to the user, collects their answers, and evaluates them against the correct answers.</p>
+<p>TOML file format:</p>
+<pre><code class="language-toml">[[questions]]
+question = &quot;&lt;Question 1&gt;&quot;
+choices = [
+  &quot;Choice 1&quot;,
+  &quot;Choice 2&quot;,
+  &quot;Choice 3&quot;,
+  &quot;Choice 4&quot;
+]
+# Answer: Choice X (X)
+[[questions]]
+question =  &quot;&lt;Question 2&gt;&quot;
+choices = [
+  &quot;Choice 1&quot;,
+  &quot;Choice 2&quot;,
+  &quot;Choice 3&quot;,
+  &quot;Choice 4&quot;,
+  &quot;Choice 5&quot;
+]
+# Answer: Choice X (X)
+...
+[correct_answers]
+correct_answers = [X1, X2, ...]
+</code></pre>
+<h2 id="benefits-and-features"><a class="header" href="#benefits-and-features"><strong>Benefits and Features</strong></a></h2>
+<ol>
+<li>Flexibility: Users can create and customize multiple-choice tests by editing TOML-formatted test files. They can add new questions, modify choices, and define correct answers.</li>
+<li>Organization: The project supports the organization of tests into test folders, allowing users to categorize and manage their tests effectively.</li>
+<li>Randomization: The script randomly selects questions from the available test files, providing variation and preventing predictable patterns in the tests.</li>
+<li>Interactivity: The project engages users by presenting questions one by one and collecting their answers interactively.</li>
+<li>Evaluation: The project automatically evaluates the user’s answers against the correct answers, providing feedback on the number of correct responses.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fastapi-website-design"><a class="header" href="#fastapi-website-design">FASTAPI Website Design</a></h1>
+<h2 id="objective-1"><a class="header" href="#objective-1"><strong>Objective:</strong></a></h2>
+<p>The objective of this project is to create an interactive quiz platform that allows users to select and answer multiple-choice quizzes. The platform will provide randomized questions from selected tests, provide immediate feedback on the correctness of user answers, and display the final score.</p>
+<h2 id="components-1"><a class="header" href="#components-1"><strong>Components:</strong></a></h2>
+<ol>
+<li>Main Page: The initial page where users can select the theme for the quizzes by choosing one of the folders in the CLI project.</li>
+<li>Test Selection: Users can select tests by clicking on the corresponding test boxes. Selected tests will be visually indicated by appearing darker in color. Users can undo their selection by clicking the test again. Once all tests are selected, users can click the “Done” button to proceed.</li>
+<li>Question Presentation: Randomized questions from the selected tests will be presented one by one to the user. Users can choose one of the choices and click “Submit” to check if their answer is correct. Users cannot go back to previous questions after submitting an answer. The correctness of the answer can be visually displayed using animations.</li>
+<li>Grading Process: After submitting all the questions, the grading process will display the user’s score as a percentage and the number of questions they answered correctly out of all the questions asked.</li>
+</ol>
+<h2 id="requirements"><a class="header" href="#requirements">Requirements</a></h2>
+<p>Steps: </p>
+<ul>
+<li>Main page selecting the theme for the quizzes, essentially selecting one of the folders in the CLI project</li>
+<li>Then the user will Select test(s) by clicking a test box
+<ul>
+<li>The tests that are clicked on will appear darker in color</li>
+<li>The user can undo selection by clicking the test once again</li>
+<li>After all the tests are selected then the user can click on the “Done” button to continue.
+<ul>
+<li>The done button will appear darker in color after clicked on</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The Randomized selection of questions from the test(s) will appear one by one presented to the  user
+<ul>
+<li>The user will click on one of the choice and then press submit. It will then display if the user has gotten the correct answer for the question.</li>
+<li>The user cannot go back to questions after submitting it</li>
+<li>The Correct and Incorrect could have a simple animation to it</li>
+<li>After all the questions are submitted the user can press submit all for the Grading Process</li>
+</ul>
+</li>
+<li>In the Grading process it will display the user’s score as a percentage and the number of questions they got right out of all questions asked</li>
+</ul>
+<h2 id="timeline"><a class="header" href="#timeline">Timeline:</a></h2>
+<ol>
+<li>Design and Development:
+<ul>
+<li>Create the main page with the theme selection feature.</li>
+<li>Implement the test selection functionality with visual feedback.</li>
+<li>Develop the question presentation system with randomized questions.</li>
+<li>Implement the user answer submission and correctness display.</li>
+<li>Design the grading process to calculate and display the final score.</li>
+</ul>
+</li>
+<li>Testing and Refinement:
+<ul>
+<li>Test the platform for functionality and usability.</li>
+<li>Conduct thorough testing to ensure the platform is bug-free.</li>
+<li>Fine-tune the user interface and animations for a seamless experience.</li>
+</ul>
+</li>
+<li>Deployment:
+<ul>
+<li>Prepare the project for deployment.</li>
+<li>Deploy the quiz platform to a suitable hosting environment.</li>
+<li>Conduct final testing to ensure the platform is working correctly in the deployment environment.</li>
+<li>Deploy on <a href="https://fastapi.tiangolo.com/deployment/deta/">Deta Space</a></li>
+</ul>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
