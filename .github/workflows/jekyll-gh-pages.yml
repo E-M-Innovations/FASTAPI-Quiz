@@ -3,7 +3,7 @@ name: Deploy to Gh-Pages
 on:
   push:
     branches: [master]
-permissions: read-all|write-all
+permissions: write-all
 jobs:
   deploy-to-gh-pages:
     runs-on: ubuntu-latest
