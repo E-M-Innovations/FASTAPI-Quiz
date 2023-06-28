@@ -1,0 +1,29 @@
+[book]
+authors = ["Mustafif"]
+language = "en"
+multilingual = false
+src = "src"
+title = "FastApi Quiz"
+
+# additional HTML options 
+[output.html]
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
+curly-quotes = true
+mathjax-support = false
+copy-fonts = true
+no-section-label = true
+git-repository-url = "https://github.com/E-M-Innovations/FASTAPI-Quiz"
+git-repository-icon = "fa-github"
+# add mermaid diagram JS files
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+
+[output.html.print]
+enable = true    # include support for printable output
+page-break = true # insert page-break after each chapter
+# enable mermaid render
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+
+
