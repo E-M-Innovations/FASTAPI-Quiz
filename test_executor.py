@@ -1,7 +1,8 @@
 import random
 import os 
 from test_utils import load_test_data, present_question, evaluate_answers
-
+from main import main
+from test_folder_utils import * 
 '''
  Contains the core functionality for conducting multiple-choice tests.
  It includes functions for getting user input, selecting test files,
@@ -22,6 +23,8 @@ def get_user_choice(test_files):
 
     Returns:
         list: List of selected test file paths.
+
+    Note: If the user inputs 'back', it returns None to restart the main() function in main.py.
     """
     clear_screen()
     print("Available Tests:")
@@ -39,9 +42,11 @@ def get_user_choice(test_files):
 
     user_choice = None
     while not user_choice:
-        test_input = input("Select test(s) (enter the number(s) separated by commas) or type 'all' for all tests: ")
+        test_input = input("Select test(s) (enter the number(s) separated by commas), type 'all' for all tests, or 'back' to go back: ")
         if test_input.lower() == 'all':
             user_choice = test_files
+        elif test_input.lower() == 'back':
+            return None # Restart the main() function in main.py
         else:
             test_numbers = test_input.split(',')
             try:
@@ -132,13 +137,15 @@ def conduct_test(user_choice, test_files):
     print("\nWelcome to the Multiple Choice Test!")
     print("Please answer the following questions:")
 
-    for question in questions:
-        user_choice = present_question(question.get('question', ''), question.get('choices', []))
+    for index, question in enumerate(questions):
+        user_choice = present_question(index+1, question.get('question', ''), question.get('choices', []))
         user_answers.append(user_choice)
-        if user_choice == correct_answers[len(user_answers) - 1]:
+        last_correct_answers = correct_answers[len(user_answers) - 1]
+        if user_choice == last_correct_answers:
             print("Correct!")
         else:
             print("Incorrect.")
+            print(f"The Correct Answer was: {question.get('choices', [])[last_correct_answers-1]}")
 
     num_correct = evaluate_answers(user_answers, correct_answers)
     total_questions = len(questions)
@@ -158,3 +165,5 @@ def show_test_results(num_correct, total_questions):
     print("\nTest Results:")
     print(f"You answered {num_correct} out of {total_questions} questions correctly.")
     print(f"Mark: {round(mark_percentage,2)}%")
+    
+    input("\nPress Enter to continue...")

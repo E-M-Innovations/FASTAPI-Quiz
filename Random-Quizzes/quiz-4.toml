@@ -1,0 +1,33 @@
+[[questions]]
+question = "What is the largest ocean in the world?"
+choices = [
+  "Atlantic Ocean",
+  "Arctic Ocean",
+  "Pacific Ocean",
+  "Indian Ocean"
+  
+]
+# Answer: Pacific Ocean (3)
+
+[[questions]]
+question = "Which country is famous for the Taj Mahal?"
+choices = [
+  "Brazil",
+  "China",
+  "Egypt",
+  "India"
+]
+# Answer: India (4)
+
+[[questions]]
+question = "Who wrote the play 'Romeo and Juliet'?"
+choices = [
+  "George Orwell",
+  "J.R.R. Tolkien",
+  "Jane Austen",
+  "William Shakespeare"
+]
+# Answer: William Shakespeare (4)
+
+[correct_answers]
+correct_answers = [3, 4, 4]
