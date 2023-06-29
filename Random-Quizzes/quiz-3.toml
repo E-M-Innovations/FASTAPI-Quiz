@@ -1,0 +1,32 @@
+[[questions]]
+question = "What is the tallest mountain in the world?"
+choices = [
+  "Mount Everest",
+  "K2",
+  "Kangchenjunga",
+  "Makalu"
+]
+# Answer: Mount Everest (1)
+
+[[questions]]
+question = "Which country is known as the 'Land of the Rising Sun'?"
+choices = [
+  "China",
+  "Japan",
+  "Thailand",
+  "South Korea"
+]
+# Answer: Japan (2)
+
+[[questions]]
+question = "Who wrote the novel 'To Kill a Mockingbird'?"
+choices = [
+  "Harper Lee",
+  "F. Scott Fitzgerald",
+  "Mark Twain",
+  "Emily Bronte"
+]
+# Answer: Harper Lee (1)
+
+[correct_answers]
+correct_answers = [1, 2, 1]

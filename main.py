@@ -20,14 +20,21 @@ def main():
 
     Note: The `test_executor` module, which contains the functions required for test execution, is imported at the top
     of this file.
+
+    Note: To handle the scenario where the user inputs 'back' during test selection, the `main()` function is recursively
+    called again to restart the test execution process.
     """
     test_folders = get_test_folders()
     selected_test_folder = user_choice_test_folders(test_folders)
     test_files = get_test_files(selected_test_folder)
     user_choice = get_user_choice(test_files)
-    user_answers, num_correct, total_questions = conduct_test(user_choice, test_files)
-    show_test_results(num_correct, total_questions)
+    if user_choice is not None:
+      user_answers, num_correct, total_questions = conduct_test(user_choice, test_files)
+      show_test_results(num_correct, total_questions)
+
+    main()
 
 if __name__ == "__main__":
     main()
+
 

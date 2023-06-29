@@ -19,7 +19,7 @@ This is a command-line application that allows users to take multiple-choice tes
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/TeomanEgeSelcuk/FASTAPI-Quiz.git
+git clone https://github.com/E-M-Innovations/FASTAPI-Quiz.git
 cd <repository-directory>
 ```
 

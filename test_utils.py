@@ -21,7 +21,7 @@ def load_test_data(test_file):
         test_data = toml.load(file)
     return test_data
 
-def present_question(question, choices):
+def present_question(question_num,question, choices):
     """
     Presents a question and its choices to the user and retrieves their answer.
 
@@ -32,7 +32,7 @@ def present_question(question, choices):
     Returns:
         int: The user's choice number.
     """
-    print("\n" + question)
+    print("\n" + f"Q{question_num}) {question}")
     for index, choice in enumerate(choices):
         print(f'{index+1}. {choice}')
 
