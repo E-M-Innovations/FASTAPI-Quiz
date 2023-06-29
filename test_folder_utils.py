@@ -18,6 +18,8 @@ def get_test_folders():
     """
     test_folders = []
     for folder in os.listdir('.'):
+        if folder == "docs": 
+            continue
         if os.path.isdir(folder):
             folder_path = os.path.join('.', folder)
             test_files = [file for file in os.listdir(folder_path) if file.endswith('.toml')]
