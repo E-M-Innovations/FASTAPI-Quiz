@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: quiz_api
+    environment:
+      - PORT=${PORT}
+      - PYTHON_ENV=${PYTHON_ENV}
+      - APP_NAME=${APP_NAME}
+      - APP_VERSION=${APP_VERSION}
+      - MONGO_DB_URI=${MONGO_DB_URI}
+      - MONGO_DBNAME=${MONGO_DBNAME}
+    env_file:
+      - ./backend/.env
+    ports:
+      - ${PORT}:${PORT}
+    command: uvicorn app.main:app --host 0.0.0.0 --port ${PORT} --workers 4
+    restart: on-failure
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo
+    container_name: mongo_db
+    command: mongod --quiet --logpath /dev/null
+    env_file:
+      - ./backend/.env
+    ports:
+      - "27017:27017"
+    restart: on-failure
+    volumes:
+      - mongo-db:/data/db
+volumes:
+  mongo-db:
