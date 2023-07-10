@@ -1,9 +1,9 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel
 from typing import List
 from datetime import datetime
 
 
-class Options(BaseModel,):
+class Options(BaseModel):
     option: str
     is_correct: bool
 

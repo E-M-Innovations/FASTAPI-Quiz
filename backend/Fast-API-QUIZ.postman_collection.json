@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "d6e0a935-8c72-4970-b39d-eddad907a01e",
+		"name": "Fast-API-QUIZ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25988835"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "createAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Neeraj kuMAR    \",\r\n    \"email\" : \"asdhj@gmail.com\",\r\n    \"password\" : \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "whoami",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/me",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "quiz",
+			"item": [
+				{
+					"name": "createQuiz",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"quiz_name\": \"Jujutsu Kaisen\",\r\n  \"category\": \"ANIME\",\r\n  \"questions\": [\r\n    {\r\n      \"question\": \"What '\\n' means in C++?\",\r\n      \"options\": [\r\n        {\r\n          \"option\": \"New Escape\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"New tab\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"New line\",\r\n          \"is_correct\": true\r\n        }\r\n      ],\r\n      \"marks\": 5\r\n    },\r\n    {\r\n      \"question\": \"Which of the following is a programming language?\",\r\n      \"options\": [\r\n        {\r\n          \"option\": \"HTML\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"CSS\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"React\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"Go\",\r\n          \"is_correct\": true\r\n        }\r\n      ],\r\n      \"marks\": 5\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/quiz",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "serachQuizbyId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/quiz/64aafb154de57c5784084e5d",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz",
+								"64aafb154de57c5784084e5d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getQuizs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/quiz?limit=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"ADMIN_TOKEN\", pm.response.json().access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "user@quiz.app",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/auth/admin",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/health",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8009/",
+			"type": "string"
+		},
+		{
+			"key": "ADMIN_TOKEN",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

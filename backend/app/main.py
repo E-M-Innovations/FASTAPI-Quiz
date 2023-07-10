@@ -7,7 +7,7 @@ from app.db import is_db_connected, init_collection, client
 import time
 from app.routes.api.v1.admin.admin_router import router as admin_router
 from app.routes.api.v1.quiz.quiz_router import router as quiz_router
-
+from app.routes.api.v1.auth.auth import router as auth_router
 
 startTime = time.time()
 
@@ -61,3 +61,5 @@ app.include_router(admin_router, tags=[
                    "Administrator"], prefix="/api/v1/admin")
 app.include_router(quiz_router, tags=[
                    "Quiz"], prefix="/api/v1/quiz")
+app.include_router(auth_router, tags=[
+                   "Auth"], prefix="/api/v1/auth")
