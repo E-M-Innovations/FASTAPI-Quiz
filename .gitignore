@@ -1,1 +1,3 @@
-docs/book
+__pycache__
+.vscode
+quiz_schema_test.json
