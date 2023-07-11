@@ -67,13 +67,11 @@ def service_get_quizs(id, limit):
         except InvalidId:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST, detail="invalid id")
-        quizs = serializeList(
-            quiz_exist)
-        if len(quizs) > 0:
-            return quizs
+        if quiz_exist is not None:
+            return serializeDict(
+                quiz_exist)
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Quiz not found")
-
     #! It will return all quizzes with limit
     quiz_exist = QUIZ_COL.find(
         {}).sort("created_at", -1).limit(limit)  # Sorted By Created AT Recent quiz will come first
