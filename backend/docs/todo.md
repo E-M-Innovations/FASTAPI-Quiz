@@ -2,10 +2,10 @@
 
 1. - [x] Structure Project
 1. - [x] Setup Docker
-1. - [x] Setup MongoDB, create schema, create Database[quizdb] and collections [admin, quizs]
+1. - [x] Setup MongoDB, create schema, create Database[quizdb] and collections [admin, quiz]
 1. - [x] Health Endpoint `/health`
 1. - [x] Add quiz to database `/api/v1/quiz`
-1. - [x] Get quiz my ID `/api/v1/quiz/64aafb154de57c5784084e5d`
+1. - [x] Get quiz by ID `/api/v1/quiz/64aafb154de57c5784084e5d`
 1. - [x] Create Admin Endpoint `/api/v1/admin`
 1. - [x] WhoAMi endpoint `/api/v1/admin/me`
 1. - [x] Get all quiz `/api/v1/quiz?limit=10` default limit 10 -> this endpoint will be called on home page/ quiz pages it will list all available quizzes

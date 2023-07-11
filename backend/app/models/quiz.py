@@ -13,7 +13,7 @@ class Question(BaseModel):
     options: List[Options]
     marks: int
 
-    @field_validator('question', mode='before')
+    @field_validator("question", mode="before")
     def validate_question(cls, v: str):
         return v.capitalize()
 
@@ -22,6 +22,7 @@ class Quiz(BaseModel):
     """
     It conatins database model for the quiz questions.
     """
+
     quiz_name: str
     category: str
     questions: List[Question]

@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     """
     Environment variables automatic parser.
     """
+
     APP_NAME: Optional[str] = None
     APP_VERSION: Optional[str] = None
     PORT: Optional[int] = 8009
