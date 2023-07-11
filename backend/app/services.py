@@ -78,6 +78,8 @@ def service_get_quizs(id, limit):
     quizs = serializeList(
         quiz_exist)
     if len(quizs) > 0:
+        for res in quizs:
+            res.pop('questions')
         return quizs
     raise HTTPException(
         status_code=status.HTTP_404_NOT_FOUND, detail="Quiz not found")
@@ -141,6 +143,8 @@ def get_results(search_by: str, limit: int):
     ).sort("created_at", -1).limit(limit)
     res = serializeList(
         search_result)
+    for ele in res:
+        ele.pop("questions")
     if len(res) == 0:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Quiz not found")
