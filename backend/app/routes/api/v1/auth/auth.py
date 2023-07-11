@@ -5,7 +5,7 @@ from app.Config import configs
 from app.oauth2 import create_access_token
 from app.schemas.token_schema import BaseToken
 from datetime import timedelta
-from app.services import verify_hash
+from app.utils.hashing import verify_hash
 from app.db import get_admin_collection
 
 

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict, field_validator
 from typing import List
 from app.models.quiz import Question, Quiz
 
@@ -7,6 +7,14 @@ class CreateQuiz(BaseModel):
     quiz_name: str
     category: str
     questions: List[Question]
+    
+    @field_validator('quiz_name', mode='before')
+    def validate_quiz_name(cls, v: str):
+        return v.upper()
+
+    @field_validator('category', mode='before')
+    def validate_category(cls, v: str):
+        return v.upper()
 
     model_config = ConfigDict(
         str_strip_whitespace=True, from_attributes=True, populate_by_name=True, json_schema_extra={

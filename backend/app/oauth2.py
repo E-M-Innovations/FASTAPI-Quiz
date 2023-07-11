@@ -8,6 +8,7 @@ from app.Config import configs as settings
 from app.db import get_admin_collection
 from app.utils.serializer import serializeDict
 
+
 ADMIN_COL = get_admin_collection()
 
 oauth2_scheme_admin = OAuth2PasswordBearer(
