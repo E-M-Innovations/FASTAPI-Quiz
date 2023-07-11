@@ -13,7 +13,7 @@ async def create_quiz(req: Request, create_quiz: CreateQuiz, current_admin=Depen
     return service_create_quiz(create_quiz, current_admin)
 
 
-@router.get("/search/", description="Search Quiz By Category or Quiz Name", status_code=status.HTTP_200_OK)
+@router.get("/search", description="Search Quiz By Category or Quiz Name", status_code=status.HTTP_200_OK)
 async def search_quiz(category:  str = None, quiz_name: str = None, limit: int = 10):
     return service_search_quiz(category, quiz_name, limit)
 
