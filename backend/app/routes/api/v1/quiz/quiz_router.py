@@ -29,10 +29,10 @@ async def delete_quiz(req: Request, id: str, current_admin=Depends(get_current_a
 
 
 @router.patch("/activate", description="Make Quiz Active", status_code=status.HTTP_200_OK)
-async def delete_quiz(req: Request, id: str, current_admin=Depends(get_current_admin)):
+async def activate_quiz(req: Request, id: str, current_admin=Depends(get_current_admin)):
     return service_active_deactive_quiz(id, current_admin, True)
 
 
 @router.patch("/deactivate", description="Make Quiz Deactive", status_code=status.HTTP_200_OK)
-async def delete_quiz(req: Request, id: str, current_admin=Depends(get_current_admin)):
+async def deactivate_quiz(req: Request, id: str, current_admin=Depends(get_current_admin)):
     return service_active_deactive_quiz(id, current_admin, False)
