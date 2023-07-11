@@ -12,6 +12,16 @@
 				{
 					"name": "createAdmin",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -75,11 +85,21 @@
 				{
 					"name": "createQuiz",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"quiz_name\": \"Jujutsu Kaisen\",\r\n  \"category\": \"ANIME\",\r\n  \"questions\": [\r\n    {\r\n      \"question\": \"What '\\n' means in C++?\",\r\n      \"options\": [\r\n        {\r\n          \"option\": \"New Escape\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"New tab\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"New line\",\r\n          \"is_correct\": true\r\n        }\r\n      ],\r\n      \"marks\": 5\r\n    },\r\n    {\r\n      \"question\": \"Which of the following is a programming language?\",\r\n      \"options\": [\r\n        {\r\n          \"option\": \"HTML\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"CSS\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"React\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"Go\",\r\n          \"is_correct\": true\r\n        }\r\n      ],\r\n      \"marks\": 5\r\n    }\r\n  ]\r\n}",
+							"raw": "{\r\n  \"quiz_name\": \"JUJUTSU KAISEN\",\r\n  \"category\": \"anime\",\r\n  \"questions\": [\r\n    {\r\n      \"question\": \"What '\\n' means in C++?\",\r\n      \"options\": [\r\n        {\r\n          \"option\": \"New Escape\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"New tab\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"New line\",\r\n          \"is_correct\": true\r\n        }\r\n      ],\r\n      \"marks\": 5\r\n    },\r\n    {\r\n      \"question\": \"Which of the following is a programming language?\",\r\n      \"options\": [\r\n        {\r\n          \"option\": \"HTML\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"CSS\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"React\",\r\n          \"is_correct\": false\r\n        },\r\n        {\r\n          \"option\": \"Go\",\r\n          \"is_correct\": true\r\n        }\r\n      ],\r\n      \"marks\": 5\r\n    }\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -106,15 +126,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/api/v1/quiz/64aafb154de57c5784084e5d",
+							"raw": "{{BASE_URL}}/api/v1/quiz?id=64ad3fc4a9f1dea81b80a7c4",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"quiz",
-								"64aafb154de57c5784084e5d"
+								"quiz"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64ad3fc4a9f1dea81b80a7c4"
+								}
 							]
 						}
 					},
@@ -126,7 +151,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/api/v1/quiz?limit=1",
+							"raw": "{{BASE_URL}}/api/v1/quiz?limit=5",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -138,7 +163,166 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "1"
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteQuiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/quiz?id=64ad3fc4a9f1dea81b80a7c4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64ad3fc4a9f1dea81b80a7c4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActivateQuiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/quiz/activate?id=64ad3fc4a9f1dea81b80a7c4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz",
+								"activate"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64ad3fc4a9f1dea81b80a7c4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate Quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/quiz/deactivate?id=64ad3fc4a9f1dea81b80a7c4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz",
+								"deactivate"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64ad3fc4a9f1dea81b80a7c4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/quiz/search?category=anime",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz",
+								"search"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "anime"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchByQuizName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/quiz/search?quiz_name=Waldo",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz",
+								"search"
+							],
+							"query": [
+								{
+									"key": "quiz_name",
+									"value": "Waldo"
 								}
 							]
 						}
@@ -171,7 +355,7 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "user@quiz.app",
+									"value": "admin@quiz.app",
 									"type": "text"
 								},
 								{

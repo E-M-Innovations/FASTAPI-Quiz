@@ -10,7 +10,7 @@ router = APIRouter()
 
 @router.post("/", response_description="Create new admin",
              status_code=status.HTTP_201_CREATED, response_model=AdminOut)
-async def create_admin(req: Request, admin: AdminCreate):
+async def create_admin(req: Request, admin: AdminCreate, current_admin=Depends(get_current_admin)):
     return service_admin_create_account(admin)
 
 
