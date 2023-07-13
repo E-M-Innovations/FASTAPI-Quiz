@@ -7,7 +7,7 @@ from app.db import is_db_connected, init_collection, client
 import time
 from app.routes.api.v1.admin.admin_router import router as admin_router
 from app.routes.api.v1.quiz.quiz_router import router as quiz_router
-
+from app.routes.api.v1.auth.auth import router as auth_router
 
 startTime = time.time()
 
@@ -29,13 +29,11 @@ app.add_middleware(
 @app.on_event("startup")
 def startup_db_client():
     if is_db_connected():
-        print(
-            f"🚀 @{configs.APP_NAME} v{configs.APP_VERSION} [{configs.PYTHON_ENV}]")
+        print(f"🚀 @{configs.APP_NAME} v{configs.APP_VERSION} [{configs.PYTHON_ENV}]")
         print("🍀 Database Connected.")
         init_collection()
     else:
-        print(
-            "❌ Database not Connected - Please check MONGO_DB_URI env.")
+        print("❌ Database not Connected - Please check MONGO_DB_URI env.")
 
 
 @app.on_event("shutdown")
@@ -43,21 +41,28 @@ def shutdown_db_client():
     client.close()
 
 
-@app.get("/health", status_code=status.HTTP_200_OK, tags=["Health Route"], response_class=ORJSONResponse)
+@app.get(
+    "/health",
+    status_code=status.HTTP_200_OK,
+    tags=["Health Route"],
+    response_class=ORJSONResponse,
+)
 async def health_route(req: Request):
     """
     Health Route : Returns App details.
     """
-    return ORJSONResponse({
-        "app": configs.APP_NAME,
-        "version": "v" + configs.APP_VERSION,
-        "ip": req.client.host,
-        "uptime": getUptime(startTime),
-        "database": "connected" if is_db_connected() else "disconnected",
-        "mode": configs.PYTHON_ENV,
-    })
+    return ORJSONResponse(
+        {
+            "app": configs.APP_NAME,
+            "version": "v" + configs.APP_VERSION,
+            "ip": req.client.host,
+            "uptime": getUptime(startTime),
+            "database": "connected" if is_db_connected() else "disconnected",
+            "mode": configs.PYTHON_ENV,
+        }
+    )
 
-app.include_router(admin_router, tags=[
-                   "Administrator"], prefix="/api/v1/admin")
-app.include_router(quiz_router, tags=[
-                   "Quiz"], prefix="/api/v1/quiz")
+
+app.include_router(admin_router, tags=["Administrator"], prefix="/api/v1/admin")
+app.include_router(quiz_router, tags=["Quiz"], prefix="/api/v1/quiz")
+app.include_router(auth_router, tags=["Auth"], prefix="/api/v1/auth")
